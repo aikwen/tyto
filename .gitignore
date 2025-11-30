@@ -31,31 +31,46 @@ go.work.sum
 .idea/
 .vscode/
 
-# Created by https://www.toptal.com/developers/gitignore/api/vue,vuejs
-# Edit at https://www.toptal.com/developers/gitignore?templates=vue,vuejs
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-### Vue ###
-# gitignore template for Vue.js projects
-#
-# Recommended template: Node.gitignore
+node_modules
+.DS_Store
+dist
+dist-ssr
+coverage
+*.local
 
-# TODO: where does this rule come from?
-docs/_book
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 
-# TODO: where does this rule come from?
-test/
+*.tsbuildinfo
 
-### Vuejs ###
-# Recommended template: Node.gitignore
+.eslintcache
 
-node_modules/
-dist/
-.cache/
-npm-debug.log
-yarn-error.log
+# Cypress
+/cypress/videos/
+/cypress/screenshots/
 
-# End of https://www.toptal.com/developers/gitignore/api/vue,vuejs
+# Vitest
+__screenshots__/
+# vue
+
 notebook/*
 .DS_Store
 Thumbs.db
 .env
+
