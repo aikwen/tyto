@@ -1,0 +1,296 @@
+@font-face {
+  font-family: 'Hack';
+  src: url('../fonts/hack-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'source-han-sans-cn';
+  src: url('../fonts/SourceHanSansCN-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+.html-preview pre {
+  background-color: #f0f0f0; /* 更亮的浅灰色背景 */
+  color: #333;               /* 深灰色文字 */
+  font-family: 'Hack', Menlo, Consolas, Monaco, monospace,'source-han-sans-cn';
+  margin: 1.5rem 0;
+  padding: 1em;              /* 与字体大小相关的内边距 */
+  border-radius: 6px;
+  overflow-x: auto;          /* 代码行太长时允许水平滚动 */
+  white-space: pre;
+}
+
+/* --- 代码块内部的 <code> 标签 --- */
+.html-preview pre code {
+  font-family: 'Hack', Menlo, Consolas, Monaco, monospace;
+  background: none;
+  color: inherit;
+  font-size: 1em;
+  padding: 0;
+  border-radius: 0;
+}
+
+/* --- 行内代码 <code> (不在 <pre> 里) --- */
+.html-preview :not(pre) > code {
+  /* 字体与排版 */
+  font-family: 'Hack', ui-monospace, SFMono-Regular,
+    Menlo, Consolas, monospace;
+  font-size: 0.95em;
+  line-height: 1.1;
+  margin: 0 4px;
+
+  /* 视觉样式 */
+  background: #f6f8fa;                          /* 柔和灰底 (GitHub 风) */
+  color: #24292f;
+  border: 1px solid rgba(27, 31, 36, 0.15);
+  border-radius: 6px;
+  padding: 0.15em 0.35em;
+  white-space: break-spaces;                    /* 防止长单词撑破布局 */
+  box-decoration-break: clone;                  /* 跨行保留圆角与内边距 */
+}
+
+/* 鼠标悬停更清晰一点（可选） */
+.html-preview :not(pre) > code:hover {
+  background: #eef2f6;
+  border-color: rgba(27, 31, 36, 0.2);
+}
+
+/* 与链接并存时的微调 */
+.html-preview a > code,
+.html-preview code a {
+  color: inherit;
+  text-decoration: underline dotted;
+  text-underline-offset: 2px;
+}
+
+/* 选中态对比度（可选） */
+.html-preview :not(pre) > code::selection {
+  background: #cde3ff;
+}
+
+.html-preview .highlight {
+  margin: 1.2rem 0;
+}
+
+/* 代码块本体 */
+.html-preview pre.chroma {
+  background-color: #f6f8fa;
+  color: #24292f;
+  font-family: 'Hack', Menlo, Consolas, Monaco, monospace;
+  font-size: 0.95em;
+  line-height: 1.5;
+  padding: 0.75em 1em;
+  border-radius: 6px;
+  overflow-x: auto;
+  border: 1px solid #e2e4e8;
+}
+
+/* 内部 code 标签 */
+.html-preview pre.chroma code {
+  background: none;
+  color: inherit;
+  padding: 0;
+  border-radius: 0;
+}
+
+/* 行号列 */
+.html-preview pre.chroma .ln {
+  display: inline-block;
+  width: 2.5em;
+  margin-right: 0.75em;
+  text-align: right;
+  color: #9ca3af;
+  user-select: none;       /* 拖选代码时不选中行号（体验更好） */
+}
+
+/* 代码 token 的基础（具体颜色用主题自带 class 覆盖，这里先简化） */
+.html-preview pre.chroma .k,   /* keyword */
+.html-preview pre.chroma .kd,
+.html-preview pre.chroma .kn {
+  color: #d73a49;
+}
+
+.html-preview pre.chroma .s,   /* string */
+.html-preview pre.chroma .s1,
+.html-preview pre.chroma .s2 {
+  color: #032f62;
+}
+
+.html-preview pre.chroma .c,   /* comment */
+.html-preview pre.chroma .cm,
+.html-preview pre.chroma .c1 {
+  color: #6a737d;
+  font-style: italic;
+}
+
+/* ====== Chroma token 颜色补全，尽量贴近 GitHub 风 ====== */
+
+/* 关键字、控制流 */
+.html-preview pre.chroma .k,
+.html-preview pre.chroma .kc,
+.html-preview pre.chroma .kd,
+.html-preview pre.chroma .kn,
+.html-preview pre.chroma .kr {
+  color: #d73a49;
+  font-weight: 600;
+}
+
+/* 内建名（比如 print、len 等），一般是 nb / bp */
+.html-preview pre.chroma .nb,
+.html-preview pre.chroma .bp {
+  color: #005cc5;
+}
+
+/* 函数名 */
+.html-preview pre.chroma .nf {
+  color: #6f42c1;
+}
+
+/* 类型名 / 类名 */
+.html-preview pre.chroma .nc,
+.html-preview pre.chroma .nn {
+  color: #6f42c1;
+}
+
+/* 数字 / 常量 */
+.html-preview pre.chroma .m,
+.html-preview pre.chroma .mi,
+.html-preview pre.chroma .mf,
+.html-preview pre.chroma .mh {
+  color: #005cc5;
+}
+
+/* 字符串 */
+.html-preview pre.chroma .s,
+.html-preview pre.chroma .s1,
+.html-preview pre.chroma .s2,
+.html-preview pre.chroma .sa,
+.html-preview pre.chroma .sb {
+  color: #032f62;
+}
+
+/* 注释 */
+.html-preview pre.chroma .c,
+.html-preview pre.chroma .c1,
+.html-preview pre.chroma .cm {
+  color: #6a737d;
+  font-style: italic;
+}
+
+/* 操作符 / 标点（稍微浅一点） */
+.html-preview pre.chroma .o,
+.html-preview pre.chroma .ow,
+.html-preview pre.chroma .p {
+  color: #24292f;
+}
+
+/* 标签 / HTML 等 */
+.html-preview pre.chroma .nt {
+  color: #22863a;
+}
+
+/* 变量 / 属性名（适当略微加重） */
+.html-preview pre.chroma .na,
+.html-preview pre.chroma .nv {
+  color: #005cc5;
+}
+
+/* 复制按钮 */
+
+/* 让代码块可以放绝对定位的按钮 */
+.html-preview pre.chroma.code-block {
+  position: relative;
+  overflow-x: visible;
+}
+.html-preview pre.chroma.code-block > code {
+  display: block;
+  overflow-x: auto;           /* 这行替代了原来 pre 上的 auto */
+  white-space: pre;           /* 保持一行不自动换行 */
+}
+
+/* 右上角复制按钮 */
+.html-preview .code-copy-btn {
+  position: absolute;
+  top: 6px;
+  /* bottom: 6px; */
+  right: 8px;
+  padding: 2px 8px;
+  font-size: 11px;
+  line-height: 1.4;
+  border-radius: 4px;
+  border: 1px solid #d4d4d8;
+  background: rgba(248, 250, 252, 0.9); /* 很浅的灰白，别太抢戏 */
+  color: #4b5563;
+  cursor: pointer;
+  opacity: 0.0;
+  transition:
+    opacity 0.15s ease,
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+/* 鼠标移到代码块上再显现按钮 */
+.html-preview pre.chroma.code-block:hover .code-copy-btn {
+  opacity: 1;
+}
+
+.html-preview .code-copy-btn:hover {
+  background: #e5e7eb;
+  border-color: #cbd5f5;
+  color: #111827;
+}
+
+/* 复制成功的状态（轻微高亮一下） */
+.html-preview .code-copy-btn--copied {
+  background: #dbeafe;
+  border-color: #93c5fd;
+  color: #1d4ed8;
+}
+
+/* 只针对预览里的代码块滚动条变细 */
+
+/* WebKit：让代码块里的滚动条变细 */
+/* 基础：代码块本体（让它可滚动） */
+.html-preview pre.chroma.code-block > code {
+  display: block;
+  overflow-x: auto;
+  white-space: pre;
+
+  /* Firefox：默认隐藏，再 hover 时变细 */
+  scrollbar-width: none;  /* 默认不显示 */
+}
+
+/* Firefox：鼠标移进去时出现细滚动条 */
+.html-preview pre.chroma.code-block > code:hover {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(100,116,139,0.7) transparent;
+}
+
+/* WebKit：默认“没有滚动条”（高度为 0），但仍然可滚动 */
+.html-preview pre.chroma.code-block > code::-webkit-scrollbar {
+  height: 0px;   /* ⭐ 默认高度为 0，看不到 */
+  width: 4px;    /* 如果有竖直滚动条，就用这个宽度 */
+}
+
+/* 鼠标移进代码块时，再把滚动条“长出来” */
+.html-preview pre.chroma.code-block > code:hover::-webkit-scrollbar {
+  height: 4px;   /* ⭐ 这时候才真正出现 */
+}
+
+/* 滚动条“滑块”样式 */
+.html-preview pre.chroma.code-block > code::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 116, 139, 0.7);
+  border-radius: 999px;
+}
+
+/* 轨道背景 */
+.html-preview pre.chroma.code-block > code::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+

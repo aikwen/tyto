@@ -1,0 +1,10 @@
+html,
+body,
+#app {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #f3f4f6;
+  overflow: hidden;
+}
